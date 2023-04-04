@@ -5,8 +5,8 @@
 **algorithme sidewinder**
 
 * N=1
-* S=4
-* E=2
+* S=2
+* E=4
 * W=8
 
 ```
