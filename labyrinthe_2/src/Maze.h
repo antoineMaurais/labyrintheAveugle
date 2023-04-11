@@ -10,7 +10,7 @@ public:
     Maze(const std::vector<std::vector<int>> &grid);
     ~Maze();
 
-    bool isWall(float x, float y) const;
+    bool isWall(int x, int y, int prevX, int prevY) const;
     void draw(SDL_Renderer *renderer, int screenWidth, int screenHeight) const;
 
 private:
