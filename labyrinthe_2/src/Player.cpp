@@ -30,7 +30,7 @@ void Player::moveRight()
 
 void Player::checkWalls(const Maze &maze)
 {
-    if (maze.isWall(x, y))
+    if (maze.isWall(x, y, prevX, prevY))
     {
         x = prevX;
         y = prevY;
@@ -40,10 +40,10 @@ void Player::checkWalls(const Maze &maze)
 void Player::draw(SDL_Renderer *renderer) const
 {
     SDL_Rect playerRect;
-    playerRect.x = x * 32; // Assuming a tile size of 32
-    playerRect.y = y * 32; // Assuming a tile size of 32
-    playerRect.w = 32;     // Assuming a tile size of 32
-    playerRect.h = 32;     // Assuming a tile size of 32
+    playerRect.x = x * 40 + 5; // Assuming a tile size of 32
+    playerRect.y = y * 40 + 5; // Assuming a tile size of 32
+    playerRect.w = 30;     // Assuming a tile size of 32
+    playerRect.h = 30;     // Assuming a tile size of 32
 
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red color
     SDL_RenderFillRect(renderer, &playerRect);

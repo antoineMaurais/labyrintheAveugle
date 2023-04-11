@@ -54,6 +54,12 @@ int main(int argc, char *argv[])
     // Création du joueur
     Player player(1, 1);
 
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Fond noir
+    SDL_RenderClear(renderer);
+    maze.draw(renderer, screenWidth, screenHeight);
+    player.draw(renderer);
+    SDL_RenderPresent(renderer);
+
     // Boucle principale du jeu
     bool running = true;
     while (running)
@@ -84,6 +90,12 @@ int main(int argc, char *argv[])
                     break;
                 }
                 player.checkWalls(maze);
+
+                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Fond noir
+                SDL_RenderClear(renderer);
+                maze.draw(renderer, screenWidth, screenHeight);
+                player.draw(renderer);
+                SDL_RenderPresent(renderer);
             }
         }
 
@@ -91,11 +103,7 @@ int main(int argc, char *argv[])
         // (ajoutez ici les mises à jour nécessaires pour les autres objets du jeu)
 
         // Rendu du labyrinthe et du joueur
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Fond noir
-        SDL_RenderClear(renderer);
-        maze.draw(renderer, screenWidth, screenHeight);
-        player.draw(renderer);
-        SDL_RenderPresent(renderer);
+        
     }
 
     // Nettoyage et fermeture de SDL2 et SDL2_mixer
