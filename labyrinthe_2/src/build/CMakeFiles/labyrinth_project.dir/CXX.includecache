@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/florian/Documents/MAZE/labyrinth_project/src/MazeGenerator.cpp
+MazeGenerator.h
+/home/florian/Documents/MAZE/labyrinth_project/src/MazeGenerator.h
+
+/home/florian/Documents/MAZE/labyrinth_project/src/MazeGenerator.h
+vector
+-
+cstdlib
+-
+
