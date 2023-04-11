@@ -1,0 +1,9 @@
+# Ignorer les fichiers 
+Makefile
+.txt
+.cmake
+.log
+.make
+.internal
+.includecache
+Makefile2
