@@ -31,32 +31,32 @@ bool Maze::isWall(int x, int y, int preX, int preY) const
     if(lr == 0){
         if(tb == 1){
             // Going down
-            printf("Going down : %d\n", cellValue & 1);
+            //printf("Going down : %d\n", cellValue & 1);
             if((cellValue & 1) > 0){
-                printf("wall down\n");
+                //printf("wall down\n");
                 return true;
             }
         } else if(tb == -1) {
             // Going up
-            printf("Going up: %d\n", cellValue & 4);
+            //printf("Going up: %d\n", cellValue & 4);
             if((cellValue & 4) > 0){
-                printf("wall up\n");
+                //printf("wall up\n");
                 return true;
             }
         }
     } else {
         if(lr == 1){
             // Going right
-            printf("Going right : %d\n", cellValue & 8);
+            //printf("Going right : %d\n", cellValue & 8);
             if((cellValue & 8) > 0){
-                printf("wall right\n");
+                //printf("wall right\n");
                 return true;
             }
         } else if(lr == -1){
             // Going left
-            printf("Going left : %d\n", cellValue & 2);
+            //printf("Going left : %d\n", cellValue & 2);
             if((cellValue & 2) > 0){
-                printf("wall left\n");
+                //printf("wall left\n");
                 return true;
             }
         }   

@@ -14,10 +14,10 @@ public:
 
     int x, y;
 
-    void moveUp();
-    void moveDown();
-    void moveLeft();
-    void moveRight();
+    bool isOn(int x, int y);
+    void rotateLeft();
+    void rotateRight();
+    void moveForward();
 
     void checkWalls(const Maze &maze);
     void draw(SDL_Renderer *renderer) const;
@@ -25,6 +25,11 @@ public:
 private:
     int prevX, prevY;
     char orientation;
+
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
 };
 
 #endif // PLAYER_H

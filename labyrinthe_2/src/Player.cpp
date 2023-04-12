@@ -1,8 +1,75 @@
 #include "Player.h"
 
-Player::Player(int x, int y) : x(x), y(y), prevX(x), prevY(y), orientation('n') {}
+Player::Player(int x, int y) : x(x), y(y), prevX(x), prevY(y), orientation('e') {}
 
 Player::~Player() {}
+
+bool Player::isOn(int onX, int onY){
+    return onX == x && onY == y;
+}
+
+void Player::rotateLeft()
+{
+    switch (orientation)
+    {
+    case 'n':
+        orientation = 'w';
+        break;
+    case 'w':
+        orientation = 's';
+        break;
+    case 's':
+        orientation = 'e';
+        break;
+    case 'e':
+        orientation = 'n';
+        break;
+    default:
+        break;
+    }
+}
+
+void Player::rotateRight()
+{
+    switch (orientation)
+    {
+    case 'n':
+        orientation = 'e';
+        break;
+    case 'e':
+        orientation = 's';
+        break;
+    case 's':
+        orientation = 'w';
+        break;
+    case 'w':
+        orientation = 'n';
+        break;
+    default:
+        break;
+    }
+}
+
+void Player::moveForward()
+{
+    switch (orientation)
+    {
+    case 'n':
+        moveUp();
+        break;
+    case 'e':
+        moveRight();
+        break;
+    case 's':
+        moveDown();
+        break;
+    case 'w':
+        moveLeft();
+        break;
+    default:
+        break;
+    }
+}
 
 void Player::moveUp()
 {
@@ -71,12 +138,51 @@ void filledTriangle(SDL_Renderer *renderer, int x1, int y1, int x2, int y2, int 
 
 void Player::draw(SDL_Renderer *renderer) const
 {
-    int frontX = x * 40 + 20;
-    int frontY = y * 40 + 5;
-    int backLeftX = x * 40 + 5;
-    int backLeftY = y * 40 + 35;
-    int backRightX = x * 40 + 35;
-    int backRightY = y * 40 + 35;
+    int frontX = 0;
+    int frontY = 0;
+    int backLeftX = 0;
+    int backLeftY = 0;
+    int backRightX = 0;
+    int backRightY = 0;
+
+    switch (orientation)
+    {
+    case 'n':
+        frontX = x * 40 + 20;
+        frontY = y * 40 + 5;
+        backLeftX = x * 40 + 5;
+        backLeftY = y * 40 + 35;
+        backRightX = x * 40 + 35;
+        backRightY = y * 40 + 35;
+        break;
+    case 's':
+        frontX = x * 40 + 20;
+        frontY = y * 40 + 35;
+        backLeftX = x * 40 + 5;
+        backLeftY = y * 40 + 5;
+        backRightX = x * 40 + 35;
+        backRightY = y * 40 + 5;
+        break;
+    case 'w':
+        frontX = x * 40 + 5;
+        frontY = y * 40 + 20;
+        backLeftX = x * 40 + 35;
+        backLeftY = y * 40 + 35;
+        backRightX = x * 40 + 35;
+        backRightY = y * 40 + 5;
+        break;
+    case 'e':
+        frontX = x * 40 + 35;
+        frontY = y * 40 + 20;
+        backLeftX = x * 40 + 5;
+        backLeftY = y * 40 + 5;
+        backRightX = x * 40 + 5;
+        backRightY = y * 40 + 35;
+        break;
+    default:
+        break;
+    }
+    
 
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red color
     filledTriangle(renderer, frontX, frontY, backLeftX, backLeftY, backRightX, backRightY);
