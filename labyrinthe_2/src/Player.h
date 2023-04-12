@@ -2,7 +2,9 @@
 #define PLAYER_H
 
 #include "Maze.h"
-#include <SDL.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_render.h>
+
 
 class Player
 {
@@ -22,6 +24,7 @@ public:
 
 private:
     int prevX, prevY;
+    char orientation;
 };
 
 #endif // PLAYER_H
