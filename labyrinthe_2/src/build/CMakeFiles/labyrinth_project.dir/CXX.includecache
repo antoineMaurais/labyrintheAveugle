@@ -6,27 +6,41 @@
 
 #IncludeRegexTransform: 
 
-/home/rheriteau/Documents/ENSSAT/IMR2/contenu multimedia/labyrintheAveugle/labyrinthe_2/src/Maze.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Maze.cpp
+Maze.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Maze.h
+iostream
+-
+
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Maze.h
 vector
 -
 SDL2/SDL.h
 -
 
-/home/rheriteau/Documents/ENSSAT/IMR2/contenu multimedia/labyrintheAveugle/labyrinthe_2/src/MazeGenerator.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/MazeGenerator.cpp
+MazeGenerator.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/MazeGenerator.h
+
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/MazeGenerator.h
 vector
 -
 cstdlib
 -
 
-/home/rheriteau/Documents/ENSSAT/IMR2/contenu multimedia/labyrintheAveugle/labyrinthe_2/src/Player.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Player.cpp
+Player.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Player.h
+
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Player.h
 Maze.h
-/home/rheriteau/Documents/ENSSAT/IMR2/contenu multimedia/labyrintheAveugle/labyrinthe_2/src/Maze.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Maze.h
 SDL2/SDL.h
 -
 SDL2/SDL_render.h
 -
 
-/home/rheriteau/Documents/ENSSAT/IMR2/contenu multimedia/labyrintheAveugle/labyrinthe_2/src/main.cpp
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/main.cpp
 iostream
 -
 SDL2/SDL.h
@@ -34,9 +48,9 @@ SDL2/SDL.h
 SDL2/SDL_mixer.h
 -
 Maze.h
-/home/rheriteau/Documents/ENSSAT/IMR2/contenu multimedia/labyrintheAveugle/labyrinthe_2/src/Maze.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Maze.h
 Player.h
-/home/rheriteau/Documents/ENSSAT/IMR2/contenu multimedia/labyrintheAveugle/labyrinthe_2/src/Player.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Player.h
 MazeGenerator.h
-/home/rheriteau/Documents/ENSSAT/IMR2/contenu multimedia/labyrintheAveugle/labyrinthe_2/src/MazeGenerator.h
+/home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/MazeGenerator.h
 
