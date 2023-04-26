@@ -1,11 +1,37 @@
 #include "Player.h"
+#include <AL/al.h>
+#include <AL/alc.h>
+#include <AL/alut.h>
+#include <iostream>
 
 Player::Player(int x, int y) : x(x), y(y), prevX(x), prevY(y), orientation('e') {}
 
 Player::~Player() {}
 
-bool Player::isOn(int onX, int onY){
+bool Player::isOn(int onX, int onY)
+{
     return onX == x && onY == y;
+}
+
+void Player::checksound()
+{
+    std::string soundpathname = "sounds/Duck-quacking-sound.wav";
+    buffer = alutCreateBufferFromFile(soundpathname.c_str());
+    if (buffer == AL_NONE)
+    {
+        std::cerr << "unable to open file " << soundpathname << std::endl;
+        alGetError();
+        // throw std::runtime_error("file not found or not readable");
+    }
+    // lien buffer -> source
+    alGenSources(1, &source);
+    alSourcei(source, AL_BUFFER, buffer);
+
+    // propriétés de la source à l'origine
+    alSource3f(source, AL_POSITION, 0, 0, 0); // on positionne la source à (0,0,0) par défaut
+    alSource3f(source, AL_VELOCITY, 0, 0, 0);
+    alSourcei(source, AL_LOOPING, AL_TRUE);
+    alSourcePlay(source);
 }
 
 void Player::rotateLeft()
@@ -182,7 +208,6 @@ void Player::draw(SDL_Renderer *renderer) const
     default:
         break;
     }
-    
 
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red color
     filledTriangle(renderer, frontX, frontY, backLeftX, backLeftY, backRightX, backRightY);

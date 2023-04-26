@@ -10,6 +10,9 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(SDL2_MIXER REQUIRED SDL2_mixer)
 include_directories(${SDL2_MIXER_INCLUDE_DIRS})
 
+find_package(OpenAL REQUIRED)
+include_directories(${OPENAL_INCLUDE_DIRS})
+
 add_executable(labyrinth_project main.cpp Player.cpp Player.h Maze.cpp Maze.h MazeGenerator.cpp MazeGenerator.h)
 
-target_link_libraries(labyrinth_project ${SDL2_LIBRARIES} ${SDL2_MIXER_LIBRARIES})
+target_link_libraries(labyrinth_project ${SDL2_LIBRARIES} ${SDL2_MIXER_LIBRARIES} ${OPENAL_LIBRARIES})

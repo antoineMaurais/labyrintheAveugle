@@ -4,7 +4,7 @@
 #include "Maze.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_render.h>
-
+#include <AL/al.h>
 
 class Player
 {
@@ -18,6 +18,7 @@ public:
     void rotateLeft();
     void rotateRight();
     void moveForward();
+    void checksound();
 
     void checkWalls(const Maze &maze);
     void draw(SDL_Renderer *renderer) const;
@@ -25,6 +26,9 @@ public:
 private:
     int prevX, prevY;
     char orientation;
+
+    /** buffers pour la gestion du son */
+    ALuint buffer, source;
 
     void moveUp();
     void moveDown();

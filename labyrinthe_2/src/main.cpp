@@ -10,8 +10,8 @@ int main(int argc, char *argv[])
     // Génération et chargement du labyrinthe
     int width = 4;
     int height = 4;
-    const int screenWidth = width*40;
-    const int screenHeight = height*40;
+    const int screenWidth = width * 40;
+    const int screenHeight = height * 40;
 
     // Initialisation de SDL2 et SDL2_mixer
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
     // Boucle principale du jeu
     bool running = true;
-    while (!player.isOn(width-1, height-1))
+    while (!player.isOn(width - 1, height - 1))
     {
         // Gestion des événements et des entrées utilisateur
         SDL_Event event;
@@ -94,6 +94,9 @@ int main(int argc, char *argv[])
                 case SDLK_RIGHT:
                     player.rotateRight();
                     break;
+                case SDLK_DOWN:
+                    player.checksound();
+                    break;
                 }
                 player.checkWalls(maze);
 
@@ -109,7 +112,6 @@ int main(int argc, char *argv[])
         // (ajoutez ici les mises à jour nécessaires pour les autres objets du jeu)
 
         // Rendu du labyrinthe et du joueur
-        
     }
 
     // Nettoyage et fermeture de SDL2 et SDL2_mixer

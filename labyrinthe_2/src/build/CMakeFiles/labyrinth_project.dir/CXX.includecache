@@ -31,6 +31,14 @@ cstdlib
 /home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Player.cpp
 Player.h
 /home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Player.h
+AL/al.h
+-
+AL/alc.h
+-
+AL/alut.h
+-
+iostream
+-
 
 /home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/Player.h
 Maze.h
@@ -38,6 +46,8 @@ Maze.h
 SDL2/SDL.h
 -
 SDL2/SDL_render.h
+-
+AL/al.h
 -
 
 /home/maurais/Documents/contenu_mutlimedia/projetLabyrinthe/labyrintheAveugle/labyrinthe_2/src/main.cpp
