@@ -7,3 +7,5 @@ Makefile
 .internal
 .includecache
 Makefile2
+
+labyrinthe_2/src/build/*
