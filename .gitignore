@@ -1,11 +1,8 @@
 # Ignorer les fichiers 
-Makefile
 .txt
 .cmake
 .log
 .make
 .internal
 .includecache
-Makefile2
-
-labyrinthe_2/src/build/*
+.vscode/
