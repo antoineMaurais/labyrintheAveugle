@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/labyrinth_project.dir/main.cpp.o CMakeFiles/labyrinth_project.dir/Player.cpp.o CMakeFiles/labyrinth_project.dir/Maze.cpp.o CMakeFiles/labyrinth_project.dir/MazeGenerator.cpp.o  -o labyrinth_project  -lSDL2 -lSDL2_mixer -lSDL2 
