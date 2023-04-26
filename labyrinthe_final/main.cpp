@@ -48,9 +48,19 @@ int main(int argc, char *argv[])
     alListener3f(AL_POSITION, 0, 0, 0);
     alListener3f(AL_VELOCITY, 0, 0, 0);
 
+    // position de l'arrivée
+    srand(time(NULL));
+    int arrive_x = rand() % width;
+    int arrive_y = rand() % height;
+    while(arrive_x == 0 && arrive_y == 0){
+        arrive_x = rand() % width;
+        arrive_y = rand() % height;
+    }
+
     // ouverture du flux audio à placer dans le buffer
     std::string soundpathname = "data/victory.wav";
     ALuint bufferVic = alutCreateBufferFromFile(soundpathname.c_str());
+
     if (bufferVic == AL_NONE) {
         std::cerr << "unable to open file " << soundpathname << std::endl;
         alGetError();
@@ -59,7 +69,7 @@ int main(int argc, char *argv[])
 
     ALuint victoire;
     alGenSources(1, &victoire);
-    alSourcei(victoire, AL_BUFFER, bufferVic); // son victoir
+    alSourcei(victoire, AL_BUFFER, bufferVic); // son victoire
     alSource3f(victoire, AL_POSITION, 0, 0, 0); // son sur le joueur
 
     MazeGenerator generator(width, height);
@@ -69,25 +79,14 @@ int main(int argc, char *argv[])
     // Création du joueur
     Player player(0, 0);
 
-    srand(time(NULL));
-
-    int arrive_x = rand() % width;
-    int arrive_y = rand() % height;
-
-    while(arrive_x == 0 && arrive_y == 0){
-        arrive_x = rand() % width;
-        arrive_y = rand() % height;
-    }
-
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Fond noir
     SDL_RenderClear(renderer);
-    maze.draw(renderer, screenWidth, screenHeight, arrive_x, arrive_y);
-    player.draw(renderer);
     SDL_RenderPresent(renderer);
 
     // Boucle principale du jeu
     bool running = true;
-    while (!player.isOn(arrive_x, arrive_y))
+    bool spectate = false;
+    while (running && !player.isOn(arrive_x, arrive_y))
     {
         // Gestion des événements et des entrées utilisateur
         SDL_Event event;
@@ -101,6 +100,9 @@ int main(int argc, char *argv[])
             {
                 switch (event.key.keysym.sym)
                 {
+                case SDLK_v:
+                    spectate = !spectate;
+                    break;
                 case SDLK_q:
                     player.rotateLeft();
                     player.checkWalls(maze);
@@ -130,8 +132,10 @@ int main(int argc, char *argv[])
 
                 SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Fond noir
                 SDL_RenderClear(renderer);
-                maze.draw(renderer, screenWidth, screenHeight, arrive_x, arrive_y);
-                player.draw(renderer);
+                if(spectate) {
+                    maze.draw(renderer, screenWidth, screenHeight, arrive_x, arrive_y);
+                    player.draw(renderer);
+                }
                 SDL_RenderPresent(renderer);
             }
         }
@@ -143,8 +147,11 @@ int main(int argc, char *argv[])
         
     }
 
-    alSourcePlay(victoire);
-    sleep(8);
+    if(running){
+        printf("C'est gagné !\n");
+        alSourcePlay(victoire);
+        sleep(8);
+    }
 
     // Nettoyage et fermeture de SDL2 et SDL2_mixer
     SDL_DestroyRenderer(renderer);
@@ -152,7 +159,7 @@ int main(int argc, char *argv[])
     SDL_Quit();
     alutExit();
 
-    printf("C'est gagné !\n");
+    
 
     return 0;
 }
