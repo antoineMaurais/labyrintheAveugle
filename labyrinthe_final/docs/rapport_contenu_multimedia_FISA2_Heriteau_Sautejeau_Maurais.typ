@@ -36,17 +36,19 @@ Afin de méner à bien ce projet en groupe nous avons fonctionné sous la forme 
 
 
 = Mise en place technique
-Le développement du jeu a été réalisé en C++. Le C++ est un langage de programmation orienté objet créé en 1983 par Bjarne Stroustrup. Aucun membre de notre équipe avait d'expérience sur ce langage de programmation nous avons du montée en compétence.
+Le développement du jeu a été réalisé en C++.  Le C++ est un langage de programmation orienté objet créé en 1983 par Bjarne Stroustrup. Aucun membre de notre équipe avait d'expérience sur ce langage de programmation nous avons du montée en compétence.
 
 == Choix de la méthode de génération du labyrinthe
-Nous avons décidé de réaliser un labyrinthe en 2 dimensions. La génération de celui-ci est assurée par une méthode
+Nous avons décidé de réaliser un labyrinthe en 2 dimensions. La génération de celui-ci est assurée par la méthode "generate" présente dans le fichier MazeGenerator. Cette méthode créer une matrice représentant le labyrinthe. Celle-ci s'appuie sur l'algorithme de génération de labyrinthe "Sidewinder". L'algorithme "Sidewinder" parcourt les cellules du labyrinthe ligne par ligne, créant des passages horizontaux en cassant les murs vers la droite lorsque la cellule actuelle n'est pas la dernière de la ligne. Pour les passages verticaux, il choisit une cellule aléatoire dans la course horizontale et casse le mur vers le haut s'il atteint la dernière cellule de la ligne ou si un nombre aléatoire modulo 2 est égal à 0. Ainsi, l'algorithme génère progressivement le labyrinthe avec des passages contrôlés, créant une matrice finale représentant le labyrinthe avec les murs cassés et intacts.
 
 == Utilisation d'OpenAL pour la gestion du son
 En ce qui concerne la gestion du son nous avons fait le choix d'OpenAL. OpenAL (Open Audio Library) est un bibliothèque pour la gestion de la lecture audio 3D, créée par Creative Labs en 2000. Cette bibliothèque était parfaite pour nous car elle permet de gérer le son en 3 dimensions, elle est open source et elle dispose d'une bonne documentation. 
 
-== Mise en place de l'écho-location
+== Mise en place de l'écho-location simple
+L'écho-location est assurée par une méthode au sein du code, "playSoundAround". Celle-ci intervient à la suite du clique sur le bonton "a" par le joueur. Il pourra alors entendre la position des murs autour de lui (devant et côté) grâce à un son binaurale. Cette méthode procède donc en deux étapes : détecter les murs autours du joueur puis produire un son en conséquence. Deux paramètres sont donc nécessaire pour le fonctionnement de celle-ci, l'objet joueur et le labyrinthe. 
 
 == Utilisation de SDL2 pour l'interface
+La bibliothèque SDL2 (Simple DirectMedia Layer 2) est utilisée pour créer une interface utilisateur dans notre projet. L'interface présente un design moderne avec un fond noir et des éléments blancs pour représenter les murs. L'activation de l'interface se fait en appuyant sur la touche "V" du clavier, offrant ainsi une interaction simple et intuitive pour les utilisateurs. Grâce à SDL2, nous bénéficions d'une interface visuellement attrayante et d'une expérience utilisateur fluide.
 
 
 = Architecture logicielle
